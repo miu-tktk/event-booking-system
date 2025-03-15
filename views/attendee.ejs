@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/main.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <ul>
+    <% if (events.length > 0) { %>
+      <% events.forEach(event => { %>
+        <li>
+          <strong><%= event.title %></strong>: <%= event.description %>
+          <a href="/attendee/event/<%= event.event_id %>">View Details</a>
+        </li>
+      <% }); %>
+    <% } else { %>
+      <li>No published events available</li>
+    <% } %>
+  </ul>
+  <a href="/attendee/orders">View Order History</a>
+  <br>
+  <a href="/">Back to Home</a>
+</body>
+</html>

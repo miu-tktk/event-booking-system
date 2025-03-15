@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/main.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= event.title %></h1>
+  <p><%= event.description %></p>
+  <br>
+        Date: <%= event.event_date %><br>
+        Created At: <%= event.created_at %><br>
+        Price: ¥<%= event.tickets_price %> (Remaining: <%= event.tickets_quantity %>)<br>
+  <a href="/attendee/event/<%= event.event_id %>/book">Book Tickets</a>
+  <br>
+  <a href="/attendee">Back to Attendee Home Page</a>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/main.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <a href="/organiser/settings" class="button">Go to Site Settings</a>
+  <br><br>
+  <h1><%= title %></h1>
+  <h2>Create New Event</h2>
+  <form action="/organiser/add" method="POST">
+  <button type="submit">Create New Event</button>
+  </form>
+
+  <h2>Draft Events</h2>
+<ul>
+  <% if (drafts.length > 0) { %>
+    <% drafts.forEach(event => { %>
+      <li>
+        <strong><%= event.title %></strong>: <%= event.description %><br>
+        Date: <%= event.event_date %><br>
+        Created At: <%= event.created_at %><br>
+        Full Price: ¥<%= event.ticket_price %> (Remaining: <%= event.tickets_price_quantity %>)<br>
+        <a href="/organiser/edit/<%= event.event_id %>">Edit</a>
+        <form action="/organiser/publish/<%= event.event_id %>" method="POST" style="display:inline;">
+          <button type="submit">Publish</button>
+        </form>
+        <form action="/organiser/delete/<%= event.event_id %>" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }); %>
+  <% } else { %>
+    <li>No draft events</li>
+  <% } %>
+</ul>
+
+<h2>Published Events</h2>
+<ul>
+  <% if (published.length > 0) { %>
+    <% published.forEach(event => { %>
+      <li>
+        <strong><%= event.title %></strong>: <%= event.description %><br>
+        Date: <%= event.event_date %><br>
+        Created At: <%= event.created_at %><br>
+        Published At: <%= event.published_at %><br>
+        Full Price: ¥<%= event.tickets_price %> (Remaining: <%= event.tickets_price_quantity %>)<br>
+        <a href="/attendee/event/<%= event.event_id %>">Share Link</a>
+        <form action="/organiser/delete/<%= event.event_id %>" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }); %>
+  <% } else { %>
+    <li>No published events</li>
+  <% } %>
+</ul>
+  <a href="/">Back to Home</a>
+</body>
+</html>
