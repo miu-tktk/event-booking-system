@@ -23,7 +23,7 @@
         <strong><%= event.title %></strong>: <%= event.description %><br>
         Date: <%= event.event_date %><br>
         Created At: <%= event.created_at %><br>
-        Full Price: ¥<%= event.ticket_price %> (Remaining: <%= event.tickets_price_quantity %>)<br>
+        Full Price: ¥<%= event.ticket_price %> (Remaining: <%= event.ticket_quantity %>)<br>
         <a href="/organiser/edit/<%= event.event_id %>">Edit</a>
         <form action="/organiser/publish/<%= event.event_id %>" method="POST" style="display:inline;">
           <button type="submit">Publish</button>
