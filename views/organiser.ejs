@@ -23,7 +23,8 @@
         <strong><%= event.title %></strong>: <%= event.description %><br>
         Date: <%= event.event_date %><br>
         Created At: <%= event.created_at %><br>
-        Full Price: ¥<%= event.ticket_price %> (Remaining: <%= event.ticket_quantity %>)<br>
+        Full Price: £<%= event.ticket_price %><br>
+        Remaining ticket(s): <%= event.ticket_quantity %><br>
         <a href="/organiser/edit/<%= event.event_id %>">Edit</a>
         <form action="/organiser/publish/<%= event.event_id %>" method="POST" style="display:inline;">
           <button type="submit">Publish</button>
@@ -47,7 +48,8 @@
         Date: <%= event.event_date %><br>
         Created At: <%= event.created_at %><br>
         Published At: <%= event.published_at %><br>
-        Full Price: ¥<%= event.tickets_price %> (Remaining: <%= event.tickets_price_quantity %>)<br>
+        Full Price: £<%= event.ticket_price %><br>
+        Remaining ticket(s): <%= event.ticket_quantity %><br>
         <a href="/attendee/event/<%= event.event_id %>">Share Link</a>
         <form action="/organiser/delete/<%= event.event_id %>" method="POST" style="display:inline;">
           <button type="submit">Delete</button>

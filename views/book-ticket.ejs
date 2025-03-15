@@ -10,7 +10,7 @@
   <h1><%= event.title %></h1>
   <p><%= event.description %></p>
   <p><strong>Date:</strong> <%= event.event_date %></p>
-  <p><strong>Ticket Price:</strong> ¥<%= event.ticket_price %></p>
+  <p><strong>Ticket Price:</strong> £<%= event.ticket_price %></p>
   <p><strong>Available Tickets:</strong> <%= event.ticket_quantity %></p>
 
   <form action="/attendee/event/<%= event.event_id %>/book" method="POST">
